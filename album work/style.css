@@ -1,0 +1,25 @@
+ /*
+  auther:i-swing
+  date:2016.12
+  Editor:2016.12.12;
+*/
+
+html { width:100%; height:100%; }
+body { margin:0; padding:0; border:0; width:100%; background:url(img/bg.jpg) no-repeat; background-size:cover; background-attachment:fixed; text-align:center; color:#fff; font-family:Microsoft YaHei; }
+h3 { margin:0; }
+p { margin:0; }
+
+/*head*/
+.header-bar { width:100%; height:68px; background:rgba(0,0,0,.5); position:fixed; top:0; }
+.header-face { width:126px; height:126px; border:5px solid rgba(0,0,0,.5); border-radius:50%; position:fixed; top:0; left:50%; margin-left:-63px; }
+.face-img { width:120px; height:120px; background:url(img/face.jpg) no-repeat; background-size:cover; border:3px solid rgba(255,255,255,.7); border-radius:50%; }
+
+/*brief*/
+.brief { width:1000px; margin:166px auto 0; padding:20px 0 30px; background:rgba(0,0,0,.5); }
+.brief p { line-height:1.8em; font-style:italic; }
+
+/*album*/
+.album { width:1000px; margin:10px auto 0; overflow:hidden; }
+.album-item { float:left; margin:30px 80px 0 0; line-height:1.8em; }
+.album-item:nth-child(3n) { margin-right:0; }
+.album-item-img img { width:270px; height:191px; border:5px solid #eee; box-shadow:5px 5px 10px rgba(0,0,0,.75); border-radius:6px; }
