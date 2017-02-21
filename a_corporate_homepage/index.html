@@ -1,363 +1,629 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
+<html lang="zh-CN">
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no" />
     <title>Corlate Website</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- swiper -->
+    <link href="http://cdn.bootcss.com/Swiper/3.4.1/css/swiper.min.css" rel="stylesheet">
     <!-- Compatibility setup for Beowser -->
-    <link rel="stylesheet" href="css/normalize.css">
-
+    <link href="http://cdn.bootcss.com/normalize/5.0.0/normalize.min.css" rel="stylesheet">
     <!-- Icon Font Quote -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS style -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- media query -->
     <link rel="stylesheet" href="css/media.css" media="screen">
-
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
- 
+</head>
 
-  <body>
+<body>
     <!-- top-bar begin -->
     <div class="top-bar">
-      <div class="top-bar-con inner cf">
-        <div class="top-bar-left fa fa-phone-square"><span>029-88888888</span></div>
-        <div class="top-bar-right cf">
-          <div class="top-bar-share">
-            <a class="fa fa-weibo" href="#"></a>
-            <a class="fa fa-wechat" href="#"></a>
-            <a class="fa fa-qq" href="#"></a>
-            <a class="fa fa-github-alt" href="#"></a>
-          </div>
-          <div class="top-bar-search">
-            <form action="#">
-              <input type="text" placeholder="请输入关键词">
-              <button class="fa fa-search" type="submit"></button>
-            </form>
-          </div>
+        <div class="top-bar-con inner cf">
+            <div class="top-bar-left cf">
+                <button type="button" class="btn btn-danger btn-xs" id="modalDisplay" data-toggle="modal" href="#modalLogin">
+                    登录
+                </button>
+                <button type="button" class="btn btn-danger btn-xs" id="modalDisplay2" data-toggle="modal" href="#modalRegister">
+                    注册
+                </button>
+                <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Corlate! 你的幸福生活！</h4>
+                            </div>
+                            <div class="modal-body row">
+                                <div class="login col-xs-12">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="username" class="control-label col-xs-2">用户名</label>
+                                            <div class="col-xs-10">
+                                                <input class="form-control" id="username" type="text" name="username" placeholder="username">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="control-label col-xs-2">密码</label>
+                                            <div class="col-xs-10">
+                                                <input class="form-control" id="password" type="password" name="password" placeholder="password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-offset-2 col-xs-10">
+                                                <a id="forgetPwd" href="#">忘记密码</a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-offset-2 col-xs-10">
+                                                <button id="btnLogin" class="btn btn-danger btn-md" type="button">登录</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span>第三方账号登录：</span>
+                                <i><a class="fa fa-wechat" href="#"></a></i>
+                                <i><a class="fa fa-weibo" href="#"></a></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog"">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">注册成为我们的会员！享受更多的专属福利！</h4>
+                            </div>
+                            <div class="modal-body row" action="php/from-test.php" method="post">
+                                <div class="register col-xs-12">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="username" class="control-label col-xs-2">用户名</label>
+                                            <div class="col-xs-10">
+                                                <input class="form-control" id="usernameApply" type="text" name="username" placeholder="username">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mail" class="control-label col-xs-2">邮箱</label>
+                                            <div class="col-xs-10">
+                                                <input class="form-control" id="mail" type="text" name="mail" placeholder="mail">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone" class="control-label col-xs-2">手机号</label>
+                                            <div class="col-xs-10">
+                                                <input class="form-control" id="phone" type="text" name="phone" placeholder="phone number">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="code" class="control-label col-xs-2">验证码</label>
+                                            <div class="col-xs-10">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="text" id="code" class="txt">
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-primary get-code" onclick="getCode(this)" id="J_getCode" type="button">获取验证码</button>
+                                                        <button class="btn btn-primary reset-code" id="J_resetCode" style="display:none;"><span id="J_second">60</span>秒后重发</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="control-label col-xs-2">密码</label>
+                                            <div class="col-xs-10">
+                                                <input class="form-control" id="passwordSetup" type="password" name="password" placeholder="password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-offset-2 col-xs-10">
+                                                <div class="checkbox">
+                                                    <label class="control-label">
+                                                        <input id="agreement" type="checkbox"> 同意用户协议
+                                                    </label>
+                                                    <a href="#">用户协议</a>
+                                                    <span id="agrennmentTip">请阅读并同意用户协议！</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-offset-2 col-xs-10">
+                                                <button id="btnRegister" class="btn btn-danger btn-md" type="button">注册</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span>第三方账号登录：</span>
+                                <i><a class="fa fa-wechat" href="#"></a></i>
+                                <i><a class="fa fa-weibo" href="#"></a></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-bar-right cf">
+                <div class="top-bar-share">
+                    <a class="fa fa-weibo" href="#"></a>
+                    <a class="fa fa-wechat" href="#"></a>
+                    <a class="fa fa-qq" href="#"></a>
+                    <a class="fa fa-github-alt" href="#"></a>
+                </div>
+                <div class="top-bar-search">
+                    <form action="#">
+                        <input type="text" placeholder="请输入关键词">
+                        <button class="fa fa-search" type="submit"></button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-
-
-
-
-
     <!-- nav begin -->
     <div class="nav">
-      <div class="nav-bar inner cf">
-        <img class="nav-bar-logo" src="./img/logo.png">
-        <div class="nav-bar-item cf">
-          <a href="#">首页</a>
-          <a href="#">关于我们</a>
-          <a href="#">企业服务</a>
-          <a href="#">企业产品</a>
-          <a href="#">企业博客</a>
-          <a href="#">联系我们</a>
+        <div class="nav-bar inner cf">
+            <img class="nav-bar-logo" src="./img/logo.png">
+            <div class="nav-bar-item cf">
+                <a href="#">首页</a>
+                <a href="#">关于我们</a>
+                <a href="#">企业服务</a>
+                <a href="#">企业产品</a>
+                <a href="#">企业博客</a>
+                <a href="#">联系我们</a>
+            </div>
         </div>
-      </div>
     </div>
-
-
-
-
     <!-- focus aera begin: the most important aere of this page -->
-    <div class="focus">
-      <div class="focus-con inner cf">
-        <div class="focus-con-details">
-          <div class="focus-con-info cf">
-            <h1>双十一电商狂欢节</h1>
-            <p>一年一度的“双十一”即将到来，近年来“双十一”已从“光棍节”逐渐演变成“购物狂欢节”，各大电商争相降价促销制造各种“福利”，而广大“剁手党”们则顾不上有用没用，先赶着降价买回家再说</p>
-            <a href="#">查看详情</a>
-          </div>          
+    <div id='swiper' class="swiper-container">
+        <div class="parallax-bg" data-swiper-parallax="-15%" data-swiper-parallax-duration="3000"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="focus-info">
+                    <h1>双十一电商狂欢节</h1>
+                    <p>一年一度的“双十一”即将到来，近年来“双十一”已从“光棍节”逐渐演变成“购物狂欢节”，各大电商争相降价促销制造各种“福利”，而广大“剁手党”们则顾不上有用没用，先赶着降价买回家再说</p>
+                    <a href="#">查看详情</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="focus-info">
+                    <h1>双十一电商狂欢节</h1>
+                    <p>一年一度的“双十一”即将到来，近年来“双十一”已从“光棍节”逐渐演变成“购物狂欢节”，各大电商争相降价促销制造各种“福利”，而广大“剁手党”们则顾不上有用没用，先赶着降价买回家再说</p>
+                    <a href="#">查看详情</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="focus-info">
+                    <h1>双十一电商狂欢节</h1>
+                    <p>一年一度的“双十一”即将到来，近年来“双十一”已从“光棍节”逐渐演变成“购物狂欢节”，各大电商争相降价促销制造各种“福利”，而广大“剁手党”们则顾不上有用没用，先赶着降价买回家再说</p>
+                    <a href="#">查看详情</a>
+                </div>
+            </div>
         </div>
         <img class="focus-con-img" src="./img/focus-prospect.png">
-      </div>
-      <a class="focus-arrow focus-arrow-left" href="#"><i class="fa fa-chevron-left"></i></a>
-      <a class="focus-arrow focus-arrow-right" href="#"><i class="fa fa-chevron-right"></i></a>
-      <div class="focus-tab">
-        <a href="#" id="current"><span></span></a>
-        <a href="#"><span></span></a>
-        <a href="#"><span></span></a>
-      </div>
+        <!-- Add Pagination -->
+        <div id='page' class="swiper-pagination"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
     </div>
-
-
-
-
-
     <!-- product feature introduction begin -->
     <div class="product">
-      <div class="product-con inner">
-        <h2>产品特征</h2>
-        <p>为了在“双十一”愉快地买买买，很多人都会提前把挑选好的宝贝放入购物车，等到“双十一”打折一开始，就瞬间清空购物车。</br>
-           但是，不少人的购物车已加满，必须得删掉一些宝贝才能添加新的宝贝，这可让他们伤透了脑筋。</p>
-        <div class="product-con-team cf">
-          <dl class="product-con-item cf">
-            <dt><i class="fa fa-bullhorn"></i></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="product-con-item cf">
-            <dt><i class="fa fa-comments"></i></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="product-con-item cf">
-            <dt><i class="fa fa-cloud-download"></i></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="product-con-item cf">
-            <dt><i class="fa fa-leaf"></i></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="product-con-item cf">
-            <dt><i class="fa fa-cogs"></i></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="product-con-item cf">
-            <dt><i class="fa fa-heart"></i></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
+        <div class="product-con inner">
+            <h2>产品特征</h2>
+            <p>为了在“双十一”愉快地买买买，很多人都会提前把挑选好的宝贝放入购物车，等到“双十一”打折一开始，就瞬间清空购物车。</br>
+                但是，不少人的购物车已加满，必须得删掉一些宝贝才能添加新的宝贝，这可让他们伤透了脑筋。</p>
+            <div class="product-con-team cf">
+                <dl class="product-con-item cf">
+                    <dt><i class="fa fa-bullhorn"></i></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="product-con-item cf">
+                    <dt><i class="fa fa-comments"></i></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="product-con-item cf">
+                    <dt><i class="fa fa-cloud-download"></i></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="product-con-item cf">
+                    <dt><i class="fa fa-leaf"></i></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="product-con-item cf">
+                    <dt><i class="fa fa-cogs"></i></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="product-con-item cf">
+                    <dt><i class="fa fa-heart"></i></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+            </div>
         </div>
-      </div>
     </div>
-
-
-
-
-
     <!-- payment methods begin -->
     <div class="payment inner">
-      <h2>提前付预付款当天付尾款</h2>
-      <p>不少“剁手党”发现一些电商推出了预售活动，只要在“双十一”之前支付预付款，</br>
-         当天再支付尾款，就可以买到优惠的商品，而且预付款还能抵扣部分货款，这让一些不愿熬夜等候的人来说，可谓是好事一桩。</p>
-      <div class="payment-team cf">        
-        <div class="payment-item">
-          <img src="img/shoping/item1.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+        <h2>提前付预付款当天付尾款</h2>
+        <p>不少“剁手党”发现一些电商推出了预售活动，只要在“双十一”之前支付预付款，</br>
+            当天再支付尾款，就可以买到优惠的商品，而且预付款还能抵扣部分货款，这让一些不愿熬夜等候的人来说，可谓是好事一桩。</p>
+        <div class="payment-team cf">
+            <div class="payment-item">
+                <img src="img/shoping/item1.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item2.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item2.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item3.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item3.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item4.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item4.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item5.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item5.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item6.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item6.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item7.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item7.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="payment-item">
-          <img src="img/shoping/item8.png">
-          <div class="payment-item-con">
-            <div class="payment-item-text">
-              <h3>聚精会神的购物</h3>
-              <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
-              <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+            <div class="payment-item">
+                <img src="img/shoping/item8.png">
+                <div class="payment-item-con">
+                    <div class="payment-item-text">
+                        <h3>聚精会神的购物</h3>
+                        <p>为了能够快速将订单筛选并付款完成玩家准备了多个终端的设备子进行中</p>
+                        <a href="#"><i class="fa fa-eye"></i> 查看大图</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-
-
-
-
-
     <!-- service begin -->
     <div class="service">
-      <div class="service-con inner">
-        <h2>废寝忘食型</h2>
-        <p>身边还有这么一群人，他们白天忙着工作，下班回家后坐在电脑前或者拿着手机刷淘宝，直到深夜困得睁不开眼，才去睡觉。</p>
-        <div class="service-team cf">
-          <dl class="service-item cf">
-            <dt><img src="img/services/services1.png"></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="service-item cf">
-            <dt><img src="img/services/services2.png"></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="service-item cf">
-            <dt><img src="img/services/services3.png"></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="service-item cf">
-            <dt><img src="img/services/services4.png"></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="service-item cf">
-            <dt><img src="img/services/services5.png"></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
-          <dl class="service-item cf">
-            <dt><img src="img/services/services6.png"></dt>
-            <dd>
-              <strong>新鲜干净</strong>
-              <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
-            </dd>
-          </dl>
+        <div class="service-con inner">
+            <h2>废寝忘食型</h2>
+            <p>身边还有这么一群人，他们白天忙着工作，下班回家后坐在电脑前或者拿着手机刷淘宝，直到深夜困得睁不开眼，才去睡觉。</p>
+            <div class="service-team cf">
+                <dl class="service-item cf">
+                    <dt><img src="img/services/services1.png"></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="service-item cf">
+                    <dt><img src="img/services/services2.png"></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="service-item cf">
+                    <dt><img src="img/services/services3.png"></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="service-item cf">
+                    <dt><img src="img/services/services4.png"></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="service-item cf">
+                    <dt><img src="img/services/services5.png"></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+                <dl class="service-item cf">
+                    <dt><img src="img/services/services6.png"></dt>
+                    <dd>
+                        <strong>新鲜干净</strong>
+                        <p>商品全部采用空运，保证第一时间送达客户手中，绝不延误</p>
+                    </dd>
+                </dl>
+            </div>
         </div>
-      </div>
     </div>
-
-
-
-
-
     <!-- footer links begin -->
     <div class="links">
-      <div class="links-team inner cf">
-        <div class="links-item">
-          <h3>消费者保障</h3>
-          <a href="#">保障范围</a>
-          <a href="#">退货退款流程</a>
-          <a href="#">服务中心</a>
-          <a href="#">更多特色服务</a>
+        <div class="links-team inner cf">
+            <div class="links-item">
+                <h3>消费者保障</h3>
+                <a href="#">保障范围</a>
+                <a href="#">退货退款流程</a>
+                <a href="#">服务中心</a>
+                <a href="#">更多特色服务</a>
+            </div>
+            <div class="links-item">
+                <h3>新手上路</h3>
+                <a href="#">新手专区</a>
+                <a href="#">消费警示</a>
+                <a href="#">交易安全</a>
+                <a href="#">24小时在线帮助</a>
+                <a href="#">免费开店</a>
+            </div>
+            <div class="links-item">
+                <h3>付款方式</h3>
+                <a href="#">快捷支付</a>
+                <a href="#">信用卡</a>
+                <a href="#">余额宝</a>
+                <a href="#">蚂蚁花呗</a>
+                <a href="#">货到付款</a>
+            </div>
+            <div class="links-item">
+                <h3>淘宝特色</h3>
+                <a href="#">手机淘宝</a>
+                <a href="#">旺信</a>
+                <a href="#">大众评审</a>
+                <a href="#">B格指南</a>
+            </div>
         </div>
-        <div class="links-item">
-          <h3>新手上路</h3>
-          <a href="#">新手专区</a>
-          <a href="#">消费警示</a>
-          <a href="#">交易安全</a>
-          <a href="#">24小时在线帮助</a>
-          <a href="#">免费开店</a>
-        </div>
-        <div class="links-item">
-          <h3>付款方式</h3>
-          <a href="#">快捷支付</a>
-          <a href="#">信用卡</a>
-          <a href="#">余额宝</a>
-          <a href="#">蚂蚁花呗</a>
-          <a href="#">货到付款</a>
-        </div>
-        <div class="links-item">
-          <h3>淘宝特色</h3>
-          <a href="#">手机淘宝</a>
-          <a href="#">旺信</a>
-          <a href="#">大众评审</a>
-          <a href="#">B格指南</a>
-        </div>
-      </div>
     </div>
-
-
-
-
-
     <!-- footer begin -->
     <div class="footer">
-      <div class="footer-con inner cf">
-        <div class="footer-copyright">
-          <span>Copyright © 2016.Company name All rights reserved.</br>该模版仅限于教学使用，请勿用于商业用途。</span>
+        <div class="footer-con inner cf">
+            <div class="footer-copyright">
+                <span>Copyright © 2016.Company name All rights reserved.</br>该模版仅限于教学使用，请勿用于商业用途。</span>
+            </div>
+            <div class="footer-nav">
+                <a href="#">首页</a>
+                <a href="#">关于我们</a>
+                <a href="#">博客</a>
+                <a href="#">联系我们</a>
+            </div>
         </div>
-        <div class="footer-nav">
-          <a href="#">首页</a>
-          <a href="#">关于我们</a>
-          <a href="#">博客</a>
-          <a href="#">联系我们</a>
-        </div>
-      </div>
     </div>
+    <!-- 最新的jQuery库文件 -->
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- 最新的swiper插件文件 -->
+    <script src="http://cdn.bootcss.com/Swiper/3.4.1/js/swiper.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#btnRegister').click(function() {
+            dataCheck();
+        });
+
+        // 数据验证
+        function dataCheck() {
+            // 用户名验证
+            var myUsername = /^[a-zA-Z]{6,30}$/;
+            var username = $('#usernameApply').val();
+            var usernameTest = myUsername.test(username);
+            if (usernameTest == false) {
+                $('#usernameApply').attr("placeholder", "用户名应该由6~30个字母组成");
+                $('#usernameApply').css({
+                    "border-color": "#f00",
+                    "box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)",
+                    "-webkit-box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)"
+                });
+                $('#usernameApply').focus();
+                $('#usernameApply').val("");
+                return false;
+            } else {
+                $('#usernameApply').css({
+                    "border-color": "#ccc",
+                    "box-shadow": "none",
+                    "-webkit-box-shadow": "none"
+                });
+            }
+
+            // 邮箱验证
+            var myMail = /^\w[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+            var mail = $('#mail').val();
+            var mailTest = myMail.test(mail);
+            if (mailTest == false) {
+                $('#mail').attr("placeholder", "请输入正确的邮箱");
+                $('#mail').css({
+                    "border-color": "#f00",
+                    "box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)",
+                    "-webkit-box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)"
+                });
+                $('#mail').focus();
+                $('#mail').val("");
+                return false;
+            } else {
+                $('#mail').css({
+                    "border-color": "#ccc",
+                    "box-shadow": "none",
+                    "-webkit-box-shadow": "none"
+                });
+            }
 
 
-  </body>
+
+            // 密码验证
+            var myPassWord = /^(\w){6,20}$/;
+            var password = $('#passwordSetup').val();
+            var passwordTest = myPassWord.test(password);
+            if (passwordTest == false) {
+                $('#passwordSetup').attr("placeholder", "密码应该由6~20位字母、数字组成");
+                $('#passwordSetup').css({
+                    "border-color": "#f00",
+                    "box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)",
+                    "-webkit-box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)"
+                });
+                $('#passwordSetup').focus();
+                $('#passwordSetup').val("");
+                return false;
+            } else {
+                $('#passwordSetup').css({
+                    "border-color": "#ccc",
+                    "box-shadow": "none",
+                    "-webkit-box-shadow": "none"
+                });
+            }
+
+
+            // 用户协议验证
+            if ($("#agreement").is(":checked") == false) {
+                $("#agrennmentTip").css("display", "inline");
+                return false;
+            } else {
+                $("#agrennmentTip").css("display", "none");
+            }
+
+        }
+
+
+
+
+
+
+
+        // swiper巨幕
+        var swiper = new Swiper('#swiper', {
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            pagination: '#page',
+            paginationClickable: true,
+            parallax: true,
+            speed: 1000,
+        });
+
+
+
+    });
+    </script>
+    <script>
+    /*获取验证码*/
+    var isPhone = 1;
+
+    function getCode(e) {
+        checkPhone(); //验证手机号码
+        if (isPhone) {
+            resetCode(); //倒计时
+        }
+    };
+
+    //验证手机号码
+    function checkPhone() {
+        var phone = $('#phone').val();
+        var pattern = /^(13[0-9]|14[5|7]|15[0-9]|17[0-9]|18[0-9])\d{8}$/;
+        isPhone = 1;
+        if (!pattern.test(phone)) {
+            $('#phone').attr("placeholder", "请输入正确的手机号码");
+            $('#phone').css({
+            "border-color": "#f00",
+            "box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)",
+            "-webkit-box-shadow": "inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(233,27,27,.6)"
+        });
+            $('#phone').val("");
+            $("#phone").focus();
+            isPhone = 0;
+            return;
+        };
+    };
+    //倒计时
+    function resetCode() {
+        $('#J_getCode').hide();
+        $('#J_second').html('30');
+        $('#J_resetCode').show();
+        var second = 30;
+        var timer = null;
+        timer = setInterval(function() {
+            second -= 1;
+            if (second > 0) {
+                $('#J_second').html(second);
+                $('#phone').css({
+                    "border-color": "#ccc",
+                    "box-shadow": "none",
+                    "-webkit-box-shadow": "none"
+                });
+            } else {
+                clearInterval(timer);
+                $('#J_getCode').show();
+                $('#J_resetCode').hide();
+            }
+        }, 1000);
+    }
+    </script>
+</body>
+
 </html>
